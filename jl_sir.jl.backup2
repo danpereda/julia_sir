@@ -1,24 +1,14 @@
 ### A Pluto.jl notebook ###
-# v0.11.1
+# v0.7.5
 
 using Markdown
-using InteractiveUtils
-
-# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
 macro bind(def, element)
     quote
         local el = $(esc(element))
-        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : missing
+        global $(esc(def)) = Core.applicable(Base.peek, el) ? Base.peek(el) : missing
         el
     end
 end
-
-# ╔═╡ 35568376-898e-11ea-2293-7de50f09cea5
-begin
-	using Plots
-	md""" # Bonjour"""
-end
-
 # ╔═╡ 0b10b4d6-8989-11ea-0b19-e35480058578
 begin 
 	n_timepoints = 500
@@ -127,11 +117,17 @@ begin
 		ylabel="Fraction deceased", lw=3, title="Number of deceased depends non-monotonically on \nmortality rate", label="Deceased (fraction)")
 end
 
+# ╔═╡ 35568376-898e-11ea-2293-7de50f09cea5
+begin
+	using Plots
+	md""" # Bonjour"""
+end
+
 # ╔═╡ Cell order:
-# ╠═35568376-898e-11ea-2293-7de50f09cea5
-# ╠═0b10b4d6-8989-11ea-0b19-e35480058578
+# ╟─35568376-898e-11ea-2293-7de50f09cea5
+# ╟─0b10b4d6-8989-11ea-0b19-e35480058578
 # ╟─c1095b84-8a20-11ea-1fe4-f5d22fc9db85
-# ╠═dc771cce-8993-11ea-0810-497feac7d2f6
+# ╟─dc771cce-8993-11ea-0810-497feac7d2f6
 # ╟─a23510e8-89f5-11ea-0c25-a75768612b3b
 # ╟─a731f220-89f8-11ea-311e-01591861953a
 # ╟─65d2d834-898b-11ea-291c-f3ccc5317e69
